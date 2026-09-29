@@ -1,34 +1,85 @@
-# Task 2: Microservices
+# Task 2 Services
 
-Complete this task on the `task-2` branch.
+For Task 2, select **one** capability from the grocery system and create a
+small Python service for that capability. Then create an orchestrator that
+calls your service.
 
-## Starter Code
+You do not need to create all three services. Choose one:
 
-The original combined system is located at:
+- Cart
+- Inventory
+- Payment
 
-`starter/monolithic_retail_system.py`
+## Required Files
 
-Do not overwrite the starter file. Use it as evidence for your monolithic-architecture analysis.
+Create these two files in this folder:
 
-## Required Code Files
+1. The service file for the capability you selected:
+   - `cart_service.py`, or
+   - `inventory_service.py`, or
+   - `payment_service.py`
+2. `orchestrator_service.py`
 
-Create the following files in `services/`:
+Your completed folder should look similar to one of these examples:
 
-- `cart_service.py`
-- `inventory_service.py`
-- `payment_service.py`
-- `orchestrator_service.py`
+```text
+services/
+├── cart_service.py
+└── orchestrator_service.py
+```
 
-The required service responsibilities and endpoints are listed in `SERVICE_CONTRACTS.md`. The Python service files are the code deliverables that belong in GitHub.
+or:
 
-## Running the Services
+```text
+services/
+├── inventory_service.py
+└── orchestrator_service.py
+```
 
-Run each service in a separate terminal window. The service ports are defined in the service contract. Keep each terminal open while running the test commands.
+or:
 
-## Canvas Documentation
+```text
+services/
+├── payment_service.py
+└── orchestrator_service.py
+```
 
-Use `reference/Test Cases.md` to run the required tests. Submit the commands, responses, pass or fail results, architecture analysis, README documentation, and screenshots through Canvas.
+## Service File
 
-## README Requirement
+The selected service file should:
 
-Create the required README as a Canvas deliverable. Include your name, student ID, Python version, service descriptions, function descriptions, setup instructions, run instructions, test instructions, and known limitations.
+- Have one clear responsibility.
+- Provide the operation described in `SERVICE_CONTRACTS.md`.
+- Validate important input.
+- Return or display an understandable success or error result.
+- Keep its business rules inside the service rather than inside the
+  orchestrator.
+- Include comments explaining important design decisions.
+
+Use the matching examples in `reference/Test Cases.md` to plan your
+successful and invalid tests.
+
+## Orchestrator File
+
+`orchestrator_service.py` should:
+
+- Import or call the service you selected.
+- Provide test input to the service.
+- Display the service result.
+- Include one successful test and one unsuccessful or invalid test.
+- Coordinate the operation without copying the service's business logic.
+
+Run the orchestrator from this folder with:
+
+```text
+python orchestrator_service.py
+```
+
+If your system uses `python3` instead of `python`, use:
+
+```text
+python3 orchestrator_service.py
+```
+
+The exact output wording is your choice, but the output must make it clear
+which operation was attempted and whether it succeeded or failed.
