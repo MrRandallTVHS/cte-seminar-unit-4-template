@@ -1,82 +1,72 @@
-# Unit 4: Software Design and Architecture
+# Task 2: Service and Orchestrator
 
-This repository contains the starter materials for the Unit 4 seminar tasks.
+Complete this task on the `task-2` branch.
 
-## Before You Begin
+## Starter Code
 
-1. Create your own repository from the instructor's template repository by selecting **Use this template**.
-2. Clone your personal repository to your computer.
-3. Complete Task 1 on the `main` branch.
-4. Create a branch named `task-2` before beginning Task 2.
-5. Commit meaningful changes and push them to your personal repository.
+The original combined system is located at:
 
-Do not push work to the instructor's template repository.
+`starter/monolithic_retail_system.py`
 
-## Repository Organization
+Do not overwrite or replace the starter file. Use it as evidence for your
+monolithic-architecture analysis and as a reference for the grocery system's
+existing behavior.
 
-- `reference/` contains materials used by both tasks. Do not edit these files.
-- `task1-design-patterns/starter/` contains the original Task 1 code.
-- `task1-design-patterns/refactored/` is where the refactored Task 1 code belongs.
-- `task2-microservices/starter/` contains the original monolithic code.
-- `task2-microservices/services/` is where the Task 2 service code belongs.
-- `requirements.txt` lists the Python packages used by the microservice task.
+## Required Code Files
 
-## Submission Locations
+Select one capability from the starter system:
 
-Use GitHub for code development and commit history. Upload the written work and evidence to Canvas.
+- Cart
+- Inventory
+- Payment
 
-### GitHub Deliverables
+In `services/`, create:
 
-- Refactored Task 1 code
-- Task 2 microservice code
-- Orchestrator code
-- Required runtime files
-- Commit history for the work
+1. One service file for the capability you selected:
+   - `cart_service.py`, or
+   - `inventory_service.py`, or
+   - `payment_service.py`
+2. `orchestrator_service.py`
 
-### Canvas Deliverables
+The service contracts and recommended function interfaces are provided in
+`SERVICE_CONTRACTS.md`. The Python files are the code deliverables that
+belong in GitHub.
 
-- Task 1 pattern analysis
-- UML diagrams
-- Task 1 design explanations
-- Task 1 commit-history screenshot
-- Task 2 architecture analysis
-- Cloud or on-premises discussion
-- Monolithic and microservices explanation
-- README documentation
-- Test results or screenshots
-- Task 2 commit-history screenshot
-- GitHub repository URL
+## Running the Code
 
-## Task 1
-
-Read `task1-design-patterns/starter/retail_patterns.py`. Place only your refactored code in `task1-design-patterns/refactored/`. Complete the written analysis and UML diagrams separately for Canvas.
-
-## Task 2
-
-Read `task2-microservices/README.md` before changing code. The original monolithic system is in `task2-microservices/starter/monolithic_retail_system.py`. Service responsibilities and required endpoints are described in `task2-microservices/SERVICE_CONTRACTS.md`. Place only your Python service code in `task2-microservices/services/`. Submit the written architecture analysis, README documentation, test evidence, and screenshots through Canvas.
-
-## Python Environment
-
-Create and activate a virtual environment before installing the requirements:
+Run the orchestrator from the `services/` folder:
 
 ```text
-python -m venv .venv
+python orchestrator_service.py
 ```
 
-Windows PowerShell activation:
+If your system uses `python3`, run:
 
 ```text
-.venv\Scripts\Activate.ps1
+python3 orchestrator_service.py
 ```
 
-macOS or Linux activation:
+The orchestrator should call the selected service and display one successful
+result and one unsuccessful or invalid result. Web servers, ports, separate
+terminals, and HTTP requests are not required.
 
-```text
-source .venv/bin/activate
-```
+## Canvas Submission
 
-Install packages:
+Use `reference/Test Cases.md` to plan and run the required tests. Record the
+test input or action, expected result, actual result, and pass or revision
+decision in the Canvas submission workbook. Include the required screenshot
+of the test output.
 
-```text
-python -m pip install -r requirements.txt
-```
+Submit the written architecture responses, service explanation, diagram,
+test results, and screenshots through Canvas. Submit the service code and
+commit history through your personal GitHub repository as directed in the
+task instructions.
+
+## Related Reference Files
+
+- `SERVICE_CONTRACTS.md` explains the service responsibilities and recommended
+  function interfaces.
+- `services/README.md` explains the required files and how to run the
+  orchestrator.
+- `../reference/Test Cases.md` provides examples for Cart, Inventory, and
+  Payment selections.
