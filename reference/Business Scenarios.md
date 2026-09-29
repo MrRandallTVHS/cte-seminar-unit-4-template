@@ -1,14 +1,28 @@
 # Business Scenarios
 
-## Business Scenario 1: Retail Environment
+Use Business Scenario 1 as the primary scenario for Task 2. It matches the grocery-system starter code. Business Scenarios 2 and 3 are included as comparison examples that can help you think about different architecture needs.
 
-An e-commerce application is needed to sell snow-melting mats.
+## Business Scenario 1: Grocery Retail Environment
 
-The application must authenticate users and handle inventory, order processing and fulfillment, shipping, and notifications.
+An e-commerce grocery application is needed to allow customers to browse products, create shopping carts, place orders, and receive groceries through pickup or delivery.
 
-Demand will be high in the fall and winter but minimal in the spring and summer. Demand will also spike during the Christmas sale.
+The application must authenticate users and handle product information, inventory, shopping carts, order processing, payment, fulfillment, delivery, and customer notifications.
 
-The business will change suppliers frequently and may add new product lines with little notice. The business will also change shipping vendors frequently based on price, so the system must be easy to maintain, update, and redeploy.
+Demand will be fairly steady but may increase during holidays, severe weather, and major promotional events. The system must continue to respond when many customers shop or place orders at the same time.
+
+The business will change suppliers frequently and may add new products with little notice. Inventory information must be updated as products are received, purchased, substituted, or removed from an order. The business may also change delivery partners based on price and availability.
+
+The system should be easy to maintain, update, test, and redeploy. A change to one part of the system should not require unnecessary changes to every other part. For example, changing the payment provider should not require the inventory system to be rewritten.
+
+When a customer places an order, the system must check inventory, process payment, prepare the order, and arrange pickup or delivery. The customer should receive notifications about important order events.
+
+When selecting an architecture, consider the following questions:
+
+- Which parts of the system have separate responsibilities?
+- Which parts may need to change or scale independently?
+- How should information move between shopping carts, inventory, payment, fulfillment, and delivery?
+- Would the system benefit from independent services, or would a simpler architecture be easier to maintain?
+- Would cloud or on-premises deployment better support the business needs?
 
 ## Business Scenario 2: Ticketing for Events
 
@@ -28,3 +42,4 @@ Order creation is triggered by the user. When an order is created, the payment s
 
 The customer must be notified when the order is created, payment is processed, and the order is shipped.
 
+This scenario is useful for thinking about event-driven architecture because one action causes a sequence of related events. It can also help you compare the communication needs of an order-processing system with the communication needs of the grocery system in Business Scenario 1.
