@@ -24,24 +24,24 @@ Your completed folder should look similar to one of these examples:
 
 ```text
 services/
-â”œâ”€â”€ cart_service.py
-â””â”€â”€ orchestrator_service.py
+|--cart_service.py
+|== orchestrator_service.py
 ```
 
 or:
 
 ```text
 services/
-â”œâ”€â”€ inventory_service.py
-â””â”€â”€ orchestrator_service.py
+|-- inventory_service.py
+|-- orchestrator_service.py
 ```
 
 or:
 
 ```text
 services/
-â”œâ”€â”€ payment_service.py
-â””â”€â”€ orchestrator_service.py
+|-- payment_service.py
+|-- orchestrator_service.py
 ```
 
 ## Service File
